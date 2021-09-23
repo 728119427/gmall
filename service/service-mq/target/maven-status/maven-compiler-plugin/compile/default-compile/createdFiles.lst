@@ -1,6 +1,0 @@
-com\atguigu\gmall\mq\config\RabbitReturn.class
-com\atguigu\gmall\mq\listener\RabbitConsumer.class
-com\atguigu\gmall\mq\config\RabbitConfig.class
-com\atguigu\gmall\mq\MQApplication.class
-com\atguigu\gmall\mq\config\RabbirConfirm.class
-com\atguigu\gmall\mq\controller\SendController.class
