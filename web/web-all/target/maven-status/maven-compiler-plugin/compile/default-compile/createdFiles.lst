@@ -1,0 +1,5 @@
+com\atguigu\gmall\web\util\Page.class
+com\atguigu\gmall\web\controller\WebItemController.class
+com\atguigu\gmall\web\service\impl\CreateSkuHtmlServiceImpl.class
+com\atguigu\gmall\web\service\CreateSkuHtmlService.class
+com\atguigu\gmall\web\WebAllApplication.class

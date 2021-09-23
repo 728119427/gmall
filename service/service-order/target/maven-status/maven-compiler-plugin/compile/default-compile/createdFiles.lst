@@ -1,0 +1,15 @@
+com\atguigu\gmall\order\service\impl\OrderServiceImpl.class
+com\atguigu\gmall\order\config\GmallResourceServerConfig.class
+com\atguigu\gmall\order\listener\OrderPayListener.class
+com\atguigu\gmall\order\util\GmallThreadLocalUtils.class
+com\atguigu\gmall\order\controller\OrderController.class
+com\atguigu\gmall\order\interceptor\GmallRequestInterceptor.class
+com\atguigu\gmall\order\listener\OrderCancelListener.class
+com\atguigu\gmall\order\filter\AppTokenFilter.class
+com\atguigu\gmall\order\util\TokenUtil.class
+com\atguigu\gmall\order\OrderApplication.class
+com\atguigu\gmall\order\config\OrderRabbitConfig.class
+com\atguigu\gmall\order\config\ClosePayRabbitConfig.class
+com\atguigu\gmall\order\service\OrderService.class
+com\atguigu\gmall\order\mapper\OrderInfoMapper.class
+com\atguigu\gmall\order\mapper\OrderDetailMapper.class

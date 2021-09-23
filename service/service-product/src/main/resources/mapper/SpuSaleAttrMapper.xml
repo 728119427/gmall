@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.atguigu.gmall.product.mapper.SpuSaleAttrMapper">
+
+    <resultMap id="spuSaleAttr_value_map" type="com.atguigu.gmall.model.product.SpuSaleAttr" autoMapping="true">
+        <id property="id" column="id"></id>
+        <collection property="spuSaleAttrValueList" ofType="com.atguigu.gmall.model.product.SpuSaleAttrValue" column="id" autoMapping="true">
+            <id column="sale_attr_value_id" property="id"></id>
+        </collection>
+    </resultMap>
+
+    <!--根据spuId查询spu销售属性列表-->
+    <select id="selectSpuAttrListBySpuId" resultMap="spuSaleAttr_value_map">
+        SELECT
+            sa.id,
+            sa.base_sale_attr_id,
+            sa.sale_attr_name,
+            sa.spu_id,
+            sv.id sale_attr_value_id,
+            sv.sale_attr_value_name,
+            sv.spu_id
+        FROM
+            spu_sale_attr sa
+        INNER JOIN
+            spu_sale_attr_value sv
+        ON
+            sa.base_sale_attr_id=sv.base_sale_attr_id
+        AND
+            sa.spu_id=sv.spu_id
+        WHERE
+            sa.spu_id=#{spuId}
+    </select>
+
+    <!--根据spuId和skuId查询商品的销售属性-->
+    <select id="selectSpuSaleAttrListCheckBySku" resultMap="spuSaleAttr_value_map">
+        SELECT
+            sa.id,
+            sa.spu_id,
+            sa.base_sale_attr_id,
+            sa.sale_attr_name,
+            sv.id sale_attr_value_id,
+            sv.sale_attr_value_name,
+            skv.sku_id,
+            IF
+                ( skv.sku_id IS NULL, 0, 1 ) is_checked
+        FROM
+            spu_sale_attr sa
+        INNER JOIN
+            spu_sale_attr_value sv
+        ON
+            sa.spu_id=sv.spu_id
+        AND
+            sa.base_sale_attr_id=sv.base_sale_attr_id
+        LEFT OUTER JOIN
+            sku_sale_attr_value skv
+        ON
+            skv.sale_attr_value_id=sv.id
+        WHERE
+            sa.spu_id=#{spuId}
+        AND
+            skv.sku_id=#{skuId}
+    </select>
+
+
+</mapper>

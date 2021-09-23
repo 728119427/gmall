@@ -1,0 +1,36 @@
+package com.atguigu.gmall.oauth;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.util.Base64Utils;
+import org.springframework.web.client.RestTemplate;
+
+import java.io.UnsupportedEncodingException;
+
+/**
+ * 认证微服务
+ */
+@SpringBootApplication
+@EnableDiscoveryClient
+@ComponentScan("com.atguigu.gmall")
+@EnableFeignClients("com.atguigu.gmall.user.feign")
+public class OauthApplication {
+
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        SpringApplication.run(OauthApplication.class, args);
+
+
+        //YXRndWlndTphdGd1aWd1
+//        byte[] decode = Base64Utils.decode("YXRndWlndTphdGd1aWd1".getBytes());
+//        System.out.println(new String(decode,"utf-8"));
+    }
+
+    @Bean
+    public RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
+}

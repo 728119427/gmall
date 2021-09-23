@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: service-list
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.200.128:8848
+#热度值设置
+es:
+  hotScore:
+    incrStep: 1 #热度值每次加1
+    syncLevel: 10 #redis中的热度值每增加10同步一次到es的数据中
+  search:
+    param: keywords
