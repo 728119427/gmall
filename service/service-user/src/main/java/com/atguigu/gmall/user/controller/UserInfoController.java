@@ -44,6 +44,6 @@ public class UserInfoController {
 
     @GetMapping("/sayHello")
     public Result<String> sayHello(){
-        return Result.ok("hello!");
+        return Result.ok("hello!Bug-Fix");
     }
 }
