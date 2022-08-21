@@ -4,7 +4,6 @@ import com.atguigu.gmall.common.result.Result;
 import com.atguigu.gmall.model.order.OrderInfo;
 import com.atguigu.gmall.order.service.OrderService;
 import com.atguigu.gmall.order.util.GmallThreadLocalUtils;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
